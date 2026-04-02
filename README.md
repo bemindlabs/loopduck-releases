@@ -8,13 +8,13 @@
 
 | Platform | File | Install |
 |----------|------|---------|
-| **macOS** (Apple Silicon) | [`.dmg`](https://github.com/bemindlabs/loopduck-releases/releases/latest/download/LoopDuck_0.2.0_aarch64.dmg) | Open DMG, drag to Applications |
-| **macOS** (Intel) | [`.dmg`](https://github.com/bemindlabs/loopduck-releases/releases/latest/download/LoopDuck_0.2.0_x64.dmg) | Open DMG, drag to Applications |
-| **Windows** | [`.exe`](https://github.com/bemindlabs/loopduck-releases/releases/latest/download/LoopDuck_0.2.0_x64-setup.exe) | Run installer |
-| **Windows** (MSI) | [`.msi`](https://github.com/bemindlabs/loopduck-releases/releases/latest/download/LoopDuck_0.2.0_x64_en-US.msi) | Run installer |
-| **Linux** (Debian/Ubuntu) | [`.deb`](https://github.com/bemindlabs/loopduck-releases/releases/latest/download/LoopDuck_0.2.0_amd64.deb) | `sudo dpkg -i LoopDuck_*.deb` |
-| **Linux** (Fedora/RHEL) | [`.rpm`](https://github.com/bemindlabs/loopduck-releases/releases/latest/download/LoopDuck-0.2.0-1.x86_64.rpm) | `sudo rpm -i LoopDuck_*.rpm` |
-| **Linux** (AppImage) | [`.AppImage`](https://github.com/bemindlabs/loopduck-releases/releases/latest/download/LoopDuck_0.2.0_amd64.AppImage) | `chmod +x LoopDuck_*.AppImage && ./LoopDuck_*.AppImage` |
+| **macOS** (Apple Silicon) | [`.dmg`](https://github.com/bemindlabs/loopduck-releases/releases/latest/download/LoopDuck_2026.4.2_aarch64.dmg) | Open DMG, drag to Applications |
+| **macOS** (Intel) | [`.dmg`](https://github.com/bemindlabs/loopduck-releases/releases/latest/download/LoopDuck_2026.4.2_x64.dmg) | Open DMG, drag to Applications |
+| **Windows** | [`.exe`](https://github.com/bemindlabs/loopduck-releases/releases/latest/download/LoopDuck_2026.4.2_x64-setup.exe) | Run installer |
+| **Windows** (MSI) | [`.msi`](https://github.com/bemindlabs/loopduck-releases/releases/latest/download/LoopDuck_2026.4.2_x64_en-US.msi) | Run installer |
+| **Linux** (Debian/Ubuntu) | [`.deb`](https://github.com/bemindlabs/loopduck-releases/releases/latest/download/LoopDuck_2026.4.2_amd64.deb) | `sudo dpkg -i LoopDuck_*.deb` |
+| **Linux** (Fedora/RHEL) | [`.rpm`](https://github.com/bemindlabs/loopduck-releases/releases/latest/download/LoopDuck-2026.4.2-1.x86_64.rpm) | `sudo rpm -i LoopDuck_*.rpm` |
+| **Linux** (AppImage) | [`.AppImage`](https://github.com/bemindlabs/loopduck-releases/releases/latest/download/LoopDuck_2026.4.2_amd64.AppImage) | `chmod +x LoopDuck_*.AppImage && ./LoopDuck_*.AppImage` |
 
 Or browse all versions on the [Releases](https://github.com/bemindlabs/loopduck-releases/releases) page.
 
