@@ -7,6 +7,41 @@ Versions follow [Calendar Versioning](https://calver.org/) (YYYY.M.D).
 
 ---
 
+## [Unreleased]
+
+## [2026.5.2] - 2026-05-02
+
+### Fixed
+- **GitHub integration restored** — Settings → GitHub auth check, repo list, branches, issues, PRs, and workflow runs now work end-to-end. They had been silently failing inside the app: TLS handshakes panicked on a tokio worker thread while the main UI kept running, so the breakage was invisible without log inspection. `github_clone_repo` was unaffected (it shells to the system `git` CLI).
+- **All in-app HTTPS paths** — same root cause affected any rustls-using path (OpenClaw chat gateway, websocket TLS, and Docker-over-TLS in some configurations).
+
+### Changed
+- Install rustls' default crypto provider (`aws_lc_rs`) at process startup via `CryptoProvider::install_default()`. Multiple TLS deps (`reqwest`, `octocrab`, `tokio-tungstenite`, `russh`, `bollard`) all pulled rustls 0.23 with conflicting/no provider features, so no provider was auto-selected. The call is wrapped in an explicit `match` so the "already installed" branch (the only error mode in rustls 0.23, e.g. on dev hot-reload) is a documented no-op, and any future rustls error variant surfaces via `stderr` at startup instead of being silently swallowed.
+
+## [2026.4.22] - 2026-04-22
+
+_(no detailed entries recorded — see <https://github.com/bemindlabs/LoopDuck-Application/pull/42> for the changes shipped in this release)_
+
+## [2026.4.16] - 2026-04-16
+
+### Added
+- **AI activity indicator** — centered activity indicator in the header showing real-time AI processing status
+- **Coding automation auto-seed** — AgentsSCRUM auto-seeds coding automation and surfaces failures to the UI
+- **FIFO queue with parallel lanes** — coding workflow now supports queued execution with configurable parallel lanes
+- **Pipeline timeline UI** — frontend timeline visualization and runs history page for pipeline executions
+- **Unified pipeline store** — dual-emit legacy pipelines into unified execution store with AiGateway migration
+
+### Fixed
+- **Coding workflow persistence** — automation runs persisted correctly; tokens scrubbed from stored data; templates hydrated properly
+- **Scrum workspace hint** — workspace hint propagated correctly; JSON-escape template values to prevent parse errors
+- **Story status alignment** — board column statuses aligned with story statuses; Agents Council UX improvements
+- **Automations form** — coding_workflow action type wired through the automation form UI
+- **Clippy lint** — resolved doc-list-item lint warning in pipeline module
+
+### Changed
+- **Pipeline execution backbone** — unified execution model replacing fragmented per-module runners; migrated to AiGateway
+- **Coding workflow tests** — restored mocks for resume-from-disk and pipeline IPC scenarios
+
 ## [2026.4.14] - 2026-04-14
 
 ### Added
