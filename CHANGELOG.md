@@ -16,7 +16,8 @@ Versions follow [Calendar Versioning](https://calver.org/) (YYYY.M.D).
 - **All in-app HTTPS paths** — same root cause affected any rustls-using path (OpenClaw chat gateway, websocket TLS, and Docker-over-TLS in some configurations).
 
 ### Changed
-- Install rustls' default crypto provider (`aws_lc_rs`) at process startup via `CryptoProvider::install_default()`. Multiple TLS deps (`reqwest`, `octocrab`, `tokio-tungstenite`, `russh`, `bollard`) all pulled rustls 0.23 with conflicting/no provider features, so no provider was auto-selected. The call is wrapped in an explicit `match` so the "already installed" branch (the only error mode in rustls 0.23, e.g. on dev hot-reload) is a documented no-op, and any future rustls error variant surfaces via `stderr` at startup instead of being silently swallowed.
+- **rustls default crypto provider** — install `aws_lc_rs` at process startup via `CryptoProvider::install_default()`. Required because multiple TLS deps (`reqwest`, `octocrab`, `tokio-tungstenite`, `russh`, `bollard`) pull rustls 0.23 with conflicting/no provider features, so no provider was auto-selected.
+- **Defensive Result handling** — the install call is wrapped in an explicit `match`. The only error mode in rustls 0.23 is "provider already installed" (e.g. dev hot-reload), which is a documented no-op; any future rustls error variant surfaces via `stderr` at startup instead of being silently swallowed.
 
 ## [2026.4.22] - 2026-04-22
 
