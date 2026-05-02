@@ -20,7 +20,27 @@ Versions follow [Calendar Versioning](https://calver.org/) (YYYY.M.D).
 
 ## [2026.4.22] - 2026-04-22
 
-_(no detailed entries recorded — see <https://github.com/bemindlabs/LoopDuck-Application/pull/42> for the changes shipped in this release)_
+### Added
+- **Dev Loop** — requirement-driven 6-phase AI coding workflow at `/dev-loop` with resume support after app restart (gateway token recovered from keychain)
+- **Setup Wizard** — 8-step first-run flow now includes Dev Mode selection, LLM/CLI provider selection, and an Initial Project scaffolding step
+- **CLI provider detection** — Claude Code, Codex, and Gemini detected at setup and listed in the LLM selection step
+- **Agents Council** — Jira and GitHub tabs added to the council UI
+- **Git panel** — configurable scan-exclude patterns; horizontal tab bar replacing the repo dropdown; workspace root now detected as a git repo during scan
+
+### Changed
+- **App modes** — replaced Dev/PM/Docs with Solo/Team; existing users migrated automatically on first load (new key `dev_mode` supersedes legacy `app_mode`)
+- **Agents Council** — renamed from "Agents SCRUM"; sidebar layout rebalanced (Board, Files, Agents visible in both Solo and Team)
+- **Settings** — Coding Workflow section merged into the AI section
+- **Git panel UX** — padding, ARIA roles, branch badge, empty-state copy
+- **CI release** — added `jlumbroso/free-disk-space` step before the quality gate so cargo build does not exhaust the ubuntu-latest runner disk
+
+### Removed
+- **Dead networking code** — BLE, mesh, and transport modules removed (~3,091 lines)
+- **Legacy `openclaw_api_key` setting** — superseded by gateway URL + secret-store flow
+
+### Fixed
+- **Workspace scaffold** — rustfmt formatting in the `workspace_scaffold` match arm
+- Various clippy lints and PR review comments addressed during the release
 
 ## [2026.4.16] - 2026-04-16
 
